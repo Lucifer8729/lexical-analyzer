@@ -196,7 +196,7 @@ void MainWindow::on_actionLoad_table_triggered()
         qry.prepare("SELECT * FROM "+table_name+";");
         qry.exec();
 
-        model->setQuery(qry);
+        model->setQuery(std::move(qry));
         ui->tableView->setModel(model);
     }
 
